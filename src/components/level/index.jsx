@@ -1,14 +1,18 @@
-const Level = () => {
+const Level = ({ handleLevel, labelName, value, name, optionNames = [] }) => {
   return (
-    <>
-      <label htmlFor="">Level</label>
-      <select name="Level">
-        <option value="FreshMan">FreshMan</option>
-        <option value="Junior">Junior</option>
-        <option value="Middle Junior">Middle Junior</option>
-        <option value="Senior">Senior</option>
+    <div className="level">
+      <label htmlFor={name}>{labelName}</label>
+      <select onChange={handleLevel} name={name} value={value}>
+        <option value="" disabled>
+          Select {labelName}
+        </option>
+        {optionNames.map((optionName, index) => (
+          <option key={index} value={optionName}>
+            {optionName}
+          </option>
+        ))}
       </select>
-    </>
+    </div>
   );
 };
 

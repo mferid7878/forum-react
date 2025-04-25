@@ -1,13 +1,13 @@
-const Input = ({ type, labelName, placeHolder, setState }) => {
+const Input = ({ value, type, labelName, placeHolder, handleInput }) => {
   return (
     <>
       <label htmlFor="name">{labelName}</label>
       <input
+        value={value}
         type={type}
-        name="name"
-        id=""
+        name={labelName}
         placeholder={placeHolder}
-        onChange={(e) => setState(e.target.value)}
+        onChange={handleInput}
       />
     </>
   );
